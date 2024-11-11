@@ -1,13 +1,20 @@
+import { Monster } from './models/monster.model';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { PlayingCardComponent } from "./components/playing-card/playing-card.component";
+import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [PlayingCardComponent, SearchBarComponent]
 })
 export class AppComponent {
-  title = 'angular-tutorial-playing-cards';
+  clickCount: number = 0;
+  search = '';
+
+  increaseCount() {
+    this.clickCount++;
+  }
 }
